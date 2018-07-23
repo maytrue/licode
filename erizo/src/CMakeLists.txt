@@ -1,7 +1,6 @@
 cmake_minimum_required(VERSION 2.6)
 
 find_package(PkgConfig)
-find_package (Threads)
 #functions
 function(test_lib LIB_NAME)
   if (${LIB_NAME} MATCHES "^.*-NOTFOUND")
