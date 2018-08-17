@@ -62,7 +62,7 @@ class Channel extends events.EventEmitter {
 
   onToken(options, callback) {
     const token = options.token;
-    log.debug('message: token received');
+    log.debug('message: token received, token: ' + token);
     if (token && checkSignature(token, NUVE_KEY)) {
       this.nuve.deleteToken(token.tokenId).then(tokenDB => {
         if (token.host === tokenDB.host) {
@@ -90,7 +90,7 @@ class Channel extends events.EventEmitter {
       });
     } else {
         log.warn('message: Token authentication error, clientId: ' + this.id);
-        callback('error', 'Authentication error');
+        // callback('error', 'Authentication error');
         this.disconnect();
     }
   }
