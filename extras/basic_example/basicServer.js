@@ -132,6 +132,19 @@ var cleanExampleRooms = function (callback) {
 
 };
 
+app.post('/createRoom/', function (req, res) {
+
+    var roomName = req.body.roomName;
+    var option = { p2p: true }
+    var fail = { result : 'fail' }
+    N.API.createRoom(roomName, function (room) {
+        res.send(room);
+    }, function (error) {
+        res.send(fail);
+    }, option);
+
+});
+
 app.get('/getRooms/', function(req, res) {
     N.API.getRooms(function(rooms) {
         res.send(rooms);
