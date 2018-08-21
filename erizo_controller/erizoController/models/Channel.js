@@ -62,6 +62,7 @@ class Channel extends events.EventEmitter {
 
   onToken(options, callback) {
 
+    log.debug('options: ' + options);
     log.debug('options: ' + JSON.stringify(options));
 
     const optionsObject = JSON.parse(JSON.stringify(options));
